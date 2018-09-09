@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import Header from './Header';
+import DrumMachine from './DrumMachine';
 
 export default class App extends Component {
     constructor(props){

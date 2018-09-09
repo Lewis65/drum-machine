@@ -1,6 +1,107 @@
+$primary: #5f5fc4;
+$primary-dark: #283593;
+$button-shadow: 1px 1px 4px #CCC;
+$header-spacing: 12px;
+
+$mobile: "(max-width: 767px)";
+
+$font-stack: 'Roboto Condensed', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700');
+
+#header {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    @media #{$mobile} {
+        flex-direction: column;
+        justify-content: center;
+    }
+    #header-author {
+        font-size: 24px;
+        margin: $header-spacing;
+    }
+    #header-contact {
+        align-items: flex-end;
+        display: flex;
+        flex-direction: column;
+        @media #{$mobile} {
+            align-items: center;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100vw;
+        }
+    }
+    #header-links {
+        display: flex;
+        flex-direction: row;
+        margin-right: $header-spacing;
+        .header-link {
+            border-radius: 8px;
+            box-shadow: $button-shadow;
+            flex-basis: 0;
+            flex-grow: 1;
+            justify-content: center;
+            margin: 3px 0 3px 6px;
+            a {
+                color: #000;
+                display: flex;
+                flex-direction: row;
+                text-decoration: none;
+                .header-link-icon {
+                    align-items: center;
+                    background-color: $primary-dark;
+                    border-radius: 6px 0 0 6px;
+                    color: #FFF;
+                    display: flex;
+                    font-size: 18px;
+                    height: 30px;
+                    justify-content: center;
+                    line-height: 0;
+                    width: 30px;
+                    @media #{$mobile} {
+                        border-radius: 6px;
+                    }
+                }
+                .header-link-label {
+                    align-items: center;
+                    display: flex;
+                    margin: 0 6px;
+                    @media #{$mobile} {
+                        display: none;
+                    }
+                }
+            }
+        }
+        .header-link:hover {
+            a {
+               .header-link-icon {
+                    background-color: $primary;
+                }
+                .header-link-label {
+                    text-decoration: underline;
+                    text-decoration-color: $primary;
+                } 
+            }
+        }
+    }
+    #header-title {
+        flex-grow: 1;
+        margin-left: $header-spacing;
+        text-align: left;
+        h1 {
+            font-size: 48px;
+            margin: 0;
+            @media #{$mobile} {
+                font-size: 36px;
+            }
+        }
+    }
+}
+
 #root {
     display: flex;
-    font-family: sans-serif;
+    font-family: $font-stack;
     justify-content: center;
     text-align: center;
 }
