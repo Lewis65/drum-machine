@@ -15,6 +15,7 @@ export default class App extends Component {
             useNumPad: false
         }
 
+        //Update this with all sounds and update #display with the names
         this.sounds = [
             {
                 name: "Kick",
@@ -34,15 +35,12 @@ export default class App extends Component {
     handleKeyPress(e){
         let controls = this.state.controls[this.state.useNumPad ? 1 : 0];
         if(controls.includes(e.key)){
-            let index = controls.indexOf(e.key);
-            console.log("Play sound number " + index);
             document.getElementById(e.key.toUpperCase()).pause();
             document.getElementById(e.key.toUpperCase()).play();
         }
     }
     handlePadClick(e){
         let key = e.target.id.slice(-1);
-        console.log(key);
         document.getElementById(key).play();
     }
 
