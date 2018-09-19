@@ -28,7 +28,7 @@ module.exports = {
             {
                 test: /\.wav/,
                 use: {
-                    loader: 'file'
+                    loader: 'file-loader'
                 }
             }
         ]

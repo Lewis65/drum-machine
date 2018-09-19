@@ -13,6 +13,7 @@ $mobile: "(max-width: 767px)";
 
 $font-stack: 'Roboto Condensed', sans-serif;
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700');
+@import url('https://fonts.googleapis.com/css?family=VT323');
 
 #header {
     align-items: center;
@@ -129,6 +130,13 @@ $font-stack: 'Roboto Condensed', sans-serif;
     justify-content: center;
     margin-top: 32px;
     width: 264px;
+    #display {
+        background-color: #bbffbb;
+        padding: 10px;
+        font-family: "VT323", monospace;
+        font-size: 24px;
+        width: 232px;
+    }
     .drum-pad {
         background-color: $secondary;
         border: 6px solid $secondary-dark;
@@ -160,6 +168,65 @@ $font-stack: 'Roboto Condensed', sans-serif;
                 display: none;
             }
         }
+    }
+}
+
+#control-config {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+    .control-heading {
+        display: block;
+    }
+    .control-switch {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        .toggle {
+            margin: 10px;
+        }
+    }
+}
+
+.toggle {
+    background-color: $primary;
+    border-radius: 10px;
+    height: 20px;
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    input {
+        display: none;
+    }
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        -webkit-transition: .2s;
+        transition: .2s;
+    }
+    .slider:before {
+        position: absolute;
+        border-radius: 50%;
+        content: "";
+        height: 16px;
+        width: 16px;
+        left: 2px;
+        bottom: 2px;
+        background-color: white;
+        -webkit-transition: .2s;
+        transition: .2s;
+    }
+    input:checked + .slider:before {
+        -webkit-transform: translateX(20px);
+        -ms-transform: translateX(20px);
+        transform: translateX(20px);
     }
 }
 
