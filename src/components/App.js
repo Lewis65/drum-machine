@@ -13,10 +13,26 @@ export default class App extends Component {
         }
 
         this.handleControlSwitch = this.handleControlSwitch.bind(this);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
     }
 
     handleControlSwitch(){
         this.setState({useNumPad: !this.state.useNumPad});
+    }
+
+    handleKeyPress(e){
+        let controls = this.state.controls[this.state.useNumPad ? 1 : 0];
+        if(controls.includes(e.key)){
+            let index = controls.indexOf(e.key);
+            console.log("Play sound number " + index);
+        }
+    }
+
+    componentWillMount(){
+        document.addEventListener("keypress", this.handleKeyPress);
+    }
+    componentWillUnmount(){
+        document.removeEventListener("keypress", this.handleKeyPress);
     }
 
     render(){
@@ -32,6 +48,8 @@ export default class App extends Component {
             controls={this.state.controls[controlsToUse]}
             display={this.state.display}
             handleControlSwitch={this.handleControlSwitch}
+            handleKeyPress={this.handleKeyPress}
+            onKeyPress={this.handleKeyPress}
             />
 
         </div>
