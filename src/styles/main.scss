@@ -149,6 +149,7 @@ $font-stack: 'Roboto Condensed', sans-serif;
         justify-content: space-between;
         margin: 6px;
         padding: 6px;
+        position: relative;
         width: 52px;
         @media #{$mobile} {
             justify-content: flex-end;
@@ -167,6 +168,15 @@ $font-stack: 'Roboto Condensed', sans-serif;
             @media #{$mobile} {
                 display: none;
             }
+        }
+        .drum-pad-overlay {
+            border: 6px solid $secondary-dark;
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            height: 100%;
+            width: 100%;
+            z-index: 2;
         }
     }
 }

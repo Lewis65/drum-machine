@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import Header from './Header';
 import DrumMachine from './DrumMachine';
 
+//Import audio files
+import kick from './../audio/kick.wav';
+
 export default class App extends Component {
     constructor(props){
         super(props);
@@ -12,8 +15,16 @@ export default class App extends Component {
             useNumPad: false
         }
 
+        this.sounds = [
+            {
+                name: "Kick",
+                src: kick
+            }
+        ];
+
         this.handleControlSwitch = this.handleControlSwitch.bind(this);
         this.handleKeyPress = this.handleKeyPress.bind(this);
+        this.handlePadClick = this.handlePadClick.bind(this);
     }
 
     handleControlSwitch(){
@@ -25,7 +36,14 @@ export default class App extends Component {
         if(controls.includes(e.key)){
             let index = controls.indexOf(e.key);
             console.log("Play sound number " + index);
+            document.getElementById(e.key.toUpperCase()).pause();
+            document.getElementById(e.key.toUpperCase()).play();
         }
+    }
+    handlePadClick(e){
+        let key = e.target.id.slice(-1);
+        console.log(key);
+        document.getElementById(key).play();
     }
 
     componentWillMount(){
@@ -49,7 +67,9 @@ export default class App extends Component {
             display={this.state.display}
             handleControlSwitch={this.handleControlSwitch}
             handleKeyPress={this.handleKeyPress}
+            handlePadClick={this.handlePadClick}
             onKeyPress={this.handleKeyPress}
+            sounds={this.sounds}
             />
 
         </div>
