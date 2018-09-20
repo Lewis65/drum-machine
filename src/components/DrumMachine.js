@@ -16,7 +16,7 @@ export default class DrumMachine extends Component {
                     key={index}
                     keyPress={keyPress.toUpperCase()}
                     index={index}
-                    audio={this.props.sounds[0]}
+                    audio={this.props.sounds[index]}
                     handlePadClick={this.props.handlePadClick}
                     />
                 )

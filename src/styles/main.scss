@@ -150,10 +150,17 @@ $font-stack: 'Roboto Condensed', sans-serif;
         margin: 6px;
         padding: 6px;
         position: relative;
-        width: 52px;
+        width: 52px;  
+
+        user-select: none;
+        -webkit-user-select: none;  
+        -moz-user-select: none;    
+        -ms-user-select: none; 
+
         @media #{$mobile} {
             justify-content: flex-end;
         }
+        
         &:hover {
             background-color: $secondary-light;
             border: 6px solid $secondary;

@@ -13,7 +13,7 @@ export default class DrumPad extends Component {
             <div className="drum-pad-label">
                 {this.props.audio.name}
             </div>
-            <audio className="clip" id={this.props.keyPress} src={this.props.audio.src}></audio>
+            <audio className="clip" id={this.props.keyPress} preload="auto" src={this.props.audio.src}></audio>
         </div>
         );
     }
